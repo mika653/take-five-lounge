@@ -67,16 +67,20 @@
     min-height:100svh; position:relative; display:flex; flex-direction:column; justify-content:center;
     padding:0 var(--pad); overflow:hidden;
   }
-  .hero-bg{position:absolute; inset:0; z-index:-2;
+  .hero-bg{position:absolute; inset:0; z-index:-2; background:#070607; overflow:hidden}
+  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:70% center; opacity:.92;
+    animation:kenburns 18s ease-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1.06)}to{transform:scale(1.14)}}
+  .hero-bg::before{ /* legibility scrim */
+    content:""; position:absolute; inset:0; z-index:1;
     background:
-      radial-gradient(120% 90% at 70% 20%, rgba(181,100,30,.28), transparent 55%),
-      radial-gradient(80% 70% at 20% 90%, rgba(74,18,32,.5), transparent 60%),
-      linear-gradient(180deg,#070607,#140f0d 60%,#0b0a0c);
+      linear-gradient(90deg, rgba(9,8,9,.96) 0%, rgba(9,8,9,.74) 38%, rgba(9,8,9,.28) 72%, rgba(181,100,30,.12) 100%),
+      linear-gradient(180deg, rgba(9,8,9,.6) 0%, transparent 28%, rgba(11,10,12,.9) 100%);
   }
   .hero-bg::after{ /* spotlight beam */
-    content:""; position:absolute; top:-10%; left:55%; width:60vw; height:120vh;
-    background:linear-gradient(180deg, rgba(235,214,160,.14), transparent 70%);
-    transform:rotate(14deg); filter:blur(30px); mix-blend-mode:screen;
+    content:""; position:absolute; top:-10%; left:58%; width:60vw; height:120vh; z-index:2;
+    background:linear-gradient(180deg, rgba(235,214,160,.16), transparent 70%);
+    transform:rotate(14deg); filter:blur(30px); mix-blend-mode:screen; pointer-events:none;
   }
   .hero-inner{max-width:920px; z-index:1}
   .hero .badge{display:inline-flex; align-items:center; gap:10px; margin-bottom:28px; opacity:0; animation:fade .8s .2s forwards}
@@ -106,6 +110,17 @@
   .section-head p{color:var(--ash)}
   .divider{height:1px; background:linear-gradient(90deg,var(--brass),transparent); margin:0 var(--pad)}
 
+  /* vibe gallery */
+  .gallery .grid{display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:210px; gap:14px}
+  .gallery figure{position:relative; overflow:hidden; border-radius:10px; border:1px solid rgba(201,162,75,.15)}
+  .gallery figure img{width:100%; height:100%; object-fit:cover; filter:brightness(.8) contrast(1.06) saturate(1.05); transition:transform .8s ease, filter .8s ease}
+  .gallery figure:hover img{transform:scale(1.09); filter:brightness(1.05) contrast(1.06) saturate(1.1)}
+  .gallery figure::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(9,8,9,.78))}
+  .gallery figcaption{position:absolute; bottom:14px; left:16px; z-index:1; font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--bone); text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .gallery .tall{grid-row:span 2}
+  .gallery .wide{grid-column:span 2}
+  @media(max-width:760px){.gallery .grid{grid-template-columns:1fr 1fr; grid-auto-rows:150px} .gallery .tall{grid-row:span 2} .gallery .wide{grid-column:span 2}}
+
   /* music */
   #music{background:linear-gradient(180deg,#0b0a0c,#120d0b)}
   .music-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center}
@@ -127,6 +142,19 @@
   .cocktail h3{font-family:var(--serif); font-style:italic; font-weight:400; font-size:1.5rem; margin:8px 0 12px}
   .cocktail p{font-size:.85rem; color:var(--ash); min-height:66px}
   .cocktail .price{margin-top:16px; letter-spacing:.14em; font-size:.8rem; color:var(--champagne)}
+
+  /* cocktails backdrop */
+  #cocktails{position:relative; background:linear-gradient(rgba(11,10,12,.9),rgba(11,10,12,.96)), url("https://images.unsplash.com/photo-1616714109948-c74fe5029a4d?q=80&w=1400&auto=format&fit=crop") center/cover fixed; background-color:var(--noir)}
+  #cocktails>*{position:relative; z-index:1}
+
+  /* music imagery */
+  .music-figure{position:relative; border-radius:8px; overflow:hidden; border:1px solid rgba(201,162,75,.2); min-height:340px; display:flex; flex-direction:column; justify-content:flex-end}
+  .music-figure img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0; filter:brightness(.7) contrast(1.05)}
+  .music-figure .set-overlay{position:relative; z-index:1; padding:28px; background:linear-gradient(180deg,transparent,rgba(9,8,9,.85) 55%)}
+  .music-figure .set{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(138,128,115,.2); font-size:.92rem}
+  .music-figure .set:last-of-type{border:0}
+  .music-figure .set b{color:var(--champagne); font-weight:400}
+  .music-figure .set span{color:var(--bone); font-family:var(--serif); font-style:italic}
 
   /* menu + space */
   .cols{display:grid; grid-template-columns:1fr 1fr; gap:26px}
@@ -243,12 +271,12 @@
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="hero-bg"></div>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1629907451365-6731862a0d32?q=80&w=1800&auto=format&fit=crop" alt="Saxophone glowing under warm amber stage light" fetchpriority="high"></div>
   <div class="hero-inner">
-    <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm</span></div>
+    <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <div class="mark5">5</div>
-    <h1 class="hero-title anim">Some nights are meant to be <em>poured slowly.</em></h1>
-    <p class="hero-sub anim d1">Two floors above Queen's Road, the city falls away. What's left is brass, low light, live jazz, and a table with your name on it — inside Avalon, behind our own door.</p>
+    <h1 class="hero-title anim">Tonight, the city can wait.<br>Some nights are meant to be <em>poured slowly.</em></h1>
+    <p class="hero-sub anim d1">Brass under a single amber light. A needle finding its groove. A cocktail built like a confession. Two floors above Queen's Road — inside Avalon, behind our own door — this is where the jazz night you've been craving begins.</p>
     <div class="hero-cta anim d2">
       <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve the Dark</button>
       <a class="btn btn-lg btn-ghost" href="#music">See Tonight's Set</a>
@@ -264,6 +292,25 @@
 
 <div class="divider"></div>
 
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="section-head">
+    <span class="eyebrow">The Feeling</span>
+    <h2>Smooth, low-lit, and yours after dark.</h2>
+    <p>Close your eyes and you can already hear it. Now open them.</p>
+  </div>
+  <div class="grid">
+    <figure><img loading="lazy" src="https://images.unsplash.com/photo-1655891182838-bbb0596a1d2d?q=80&w=900&auto=format&fit=crop" alt="Saxophone in dramatic low light"><figcaption>The horn</figcaption></figure>
+    <figure class="wide"><img loading="lazy" src="https://images.unsplash.com/photo-1635520356736-90cb46f73413?q=80&w=1200&auto=format&fit=crop" alt="Vintage microphone against warm bar bokeh"><figcaption>The stage</figcaption></figure>
+    <figure><img loading="lazy" src="https://images.unsplash.com/photo-1616714109948-c74fe5029a4d?q=80&w=800&auto=format&fit=crop" alt="Golden vinyl record spinning on a turntable"><figcaption>The record</figcaption></figure>
+    <figure><img loading="lazy" src="https://images.unsplash.com/photo-1761775915848-467e41c1c4db?q=80&w=800&auto=format&fit=crop" alt="Red neon JAZZ sign in a dark room"><figcaption>The room</figcaption></figure>
+    <figure class="wide"><img loading="lazy" src="https://images.unsplash.com/photo-1601148071764-8c3f50e9ab20?q=80&w=1200&auto=format&fit=crop" alt="Turntable needle under a warm Edison bulb"><figcaption>The needle drops</figcaption></figure>
+    <figure><img loading="lazy" src="https://images.unsplash.com/photo-1581283869631-baae04233b04?q=80&w=800&auto=format&fit=crop" alt="Musician in a suit playing saxophone on stage"><figcaption>The set</figcaption></figure>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- MUSIC -->
 <section id="music">
   <div class="music-grid">
@@ -272,12 +319,15 @@
       <h2>Curated by ear.<br>Played by heart.</h2>
       <p>Guitarist and audio-production specialist Skip Moy shapes both the room's sound and its nightly programme — jazz ensembles, dynamic vocalists, original singer-songwriters and visiting guests. The cocktails are sharp; the sound is sharper.</p>
     </div>
-    <div class="music-card">
-      <div class="eyebrow" style="margin-bottom:14px">Tonight · Live sets</div>
-      <div class="set"><span>Skip Moy Trio</span><b>8:30 PM</b></div>
-      <div class="set"><span>Second set</span><b>10:00 PM</b></div>
-      <div class="set"><span>Doors &amp; cocktails from</span><b>4:00 PM</b></div>
-      <button class="btn" style="margin-top:22px;width:100%" onclick="openBooking()">Book for the 8:30 set</button>
+    <div class="music-figure">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1635520356736-90cb46f73413?q=80&w=1000&auto=format&fit=crop" alt="Vintage microphone glowing on a jazz stage">
+      <div class="set-overlay">
+        <div class="eyebrow" style="margin-bottom:14px">Tonight · Live sets</div>
+        <div class="set"><span>Skip Moy Trio</span><b>8:30 PM</b></div>
+        <div class="set"><span>Second set</span><b>10:00 PM</b></div>
+        <div class="set"><span>Doors &amp; cocktails from</span><b>4:00 PM</b></div>
+        <button class="btn" style="margin-top:22px;width:100%" onclick="openBooking()">Book for the 8:30 set</button>
+      </div>
     </div>
   </div>
 </section>
