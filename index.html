@@ -50,6 +50,9 @@
     padding:18px var(--pad); transition:background .4s,backdrop-filter .4s;
   }
   nav.scrolled{background:rgba(11,10,12,.82); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,162,75,.15)}
+  /* hide nav logo at the top so the hero emblem stands alone; reveal it on scroll */
+  nav .brand{opacity:0; transform:translateY(-6px); transition:opacity .4s ease, transform .4s ease; pointer-events:none}
+  nav.scrolled .brand{opacity:1; transform:none; pointer-events:auto}
   .brand{font-family:var(--serif); font-size:1.15rem; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; gap:.4em}
   .brand b{color:var(--brass); font-weight:600}
   .logo-emblem{display:block; border-radius:10px; border:1px solid rgba(201,162,75,.35); box-shadow:0 8px 28px -10px rgba(0,0,0,.7)}
@@ -275,7 +278,7 @@
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
     <h1 class="hero-title anim">Tonight, the city can wait.<br>Some nights are meant to be <em>poured slowly.</em></h1>
-    <p class="hero-sub anim d1">Two floors above Queen's Road, behind our own door inside Avalon. Guitarist Skip Moy runs the room; the band plays nightly from 8:30. Pull up a chair before the first set.</p>
+    <p class="hero-sub anim d1">An intimate live-jazz lounge two floors above Queen's Road, behind our own door inside Avalon. Live music every night from 8:30, five cocktails named for the standards, and a room small enough to hear every note. Pull up a chair before the first set.</p>
     <div class="hero-cta anim d2">
       <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve a Table</button>
       <a class="btn btn-lg btn-ghost" href="#music">See Tonight's Set</a>
