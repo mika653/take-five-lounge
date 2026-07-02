@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Take Five | Live Jazz &amp; Cocktail Lounge in Central, Hong Kong</title>
-<meta name="description" content="An intimate live-jazz cocktail lounge inside Avalon, H Queen's. Nightly sets from 8:30, five signature cocktails, and a table waiting in the dark. Reserve yours." />
+<meta name="description" content="An intimate live-jazz cocktail lounge inside Avalon, H Queen's, Central. Live jazz nightly 8:30–11pm, five signature cocktails at HK$110. Reserve your table." />
 <meta property="og:title" content="Take Five — Live Jazz &amp; Cocktail Lounge, Central HK" />
-<meta property="og:description" content="Live jazz nightly 8:30–11pm. Five cocktails named for the standards. Reserve the dark." />
+<meta property="og:description" content="Live jazz nightly 8:30–11pm. Five cocktails named for the standards. Reserve your table." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="take-five-logo.png" />
 <meta name="theme-color" content="#353D26" />
@@ -99,7 +99,7 @@
   @keyframes flicker{0%{opacity:0}10%{opacity:.4}12%{opacity:.1}16%{opacity:.7}20%{opacity:.2}30%{opacity:1}}
   h1.hero-title{font-family:var(--serif); font-weight:300; font-size:clamp(2.4rem,6.5vw,5rem); line-height:1.02; letter-spacing:-.01em; margin:.15em 0 .35em; max-width:16ch}
   h1.hero-title em{font-style:italic; color:var(--champagne)}
-  .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem); color:var(--ash); max-width:52ch; margin-bottom:38px}
+  .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem); color:var(--smoke); max-width:52ch; margin-bottom:38px}
   .hero-cta{display:flex; gap:14px; flex-wrap:wrap}
   .btn-lg{padding:16px 30px; font-size:.82rem}
   .btn-primary{background:linear-gradient(120deg,var(--champagne),var(--brass)); color:var(--noir); border-color:transparent; font-weight:500}
@@ -137,7 +137,7 @@
   .cocktail:hover{transform:translateY(-8px); border-color:var(--brass); box-shadow:0 24px 60px -30px rgba(201,162,75,.5)}
   .cocktail .num{font-family:var(--serif); font-size:2.4rem; color:var(--brass); opacity:.5; line-height:1}
   .cocktail h3{font-family:var(--serif); font-style:italic; font-weight:400; font-size:1.5rem; margin:8px 0 12px}
-  .cocktail p{font-size:.85rem; color:var(--ash); min-height:66px}
+  .cocktail p{font-size:.88rem; color:var(--smoke); min-height:66px}
   .cocktail .price{margin-top:16px; letter-spacing:.14em; font-size:.8rem; color:var(--champagne)}
 
   /* cocktails backdrop */
@@ -275,9 +275,9 @@
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
     <h1 class="hero-title anim">Tonight, the city can wait.<br>Some nights are meant to be <em>poured slowly.</em></h1>
-    <p class="hero-sub anim d1">Brass under a single amber light. A needle finding its groove. A cocktail built like a confession. Two floors above Queen's Road — inside Avalon, behind our own door — this is where the jazz night you've been craving begins.</p>
+    <p class="hero-sub anim d1">Two floors above Queen's Road, behind our own door inside Avalon. Guitarist Skip Moy runs the room; the band plays nightly from 8:30. Pull up a chair before the first set.</p>
     <div class="hero-cta anim d2">
-      <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve the Dark</button>
+      <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve a Table</button>
       <a class="btn btn-lg btn-ghost" href="#music">See Tonight's Set</a>
     </div>
     <div class="hero-facts anim d3">
@@ -302,11 +302,10 @@
     <div class="music-figure">
       <img loading="lazy" src="https://images.unsplash.com/photo-1635520356736-90cb46f73413?q=80&w=1000&auto=format&fit=crop" alt="Vintage microphone glowing on a jazz stage">
       <div class="set-overlay">
-        <div class="eyebrow" style="margin-bottom:14px">Tonight · Live sets</div>
-        <div class="set"><span>Skip Moy Trio</span><b>8:30 PM</b></div>
-        <div class="set"><span>Second set</span><b>10:00 PM</b></div>
+        <div class="eyebrow" style="margin-bottom:14px">Live tonight</div>
+        <div class="set"><span>Live jazz, curated by Skip Moy</span><b>8:30–11 PM</b></div>
         <div class="set"><span>Doors &amp; cocktails from</span><b>4:00 PM</b></div>
-        <button class="btn" style="margin-top:22px;width:100%" onclick="openBooking()">Book for the 8:30 set</button>
+        <button class="btn" style="margin-top:22px;width:100%" onclick="openBooking()">Book for tonight</button>
       </div>
     </div>
   </div>
@@ -395,7 +394,7 @@
 
 <!-- STICKY MOBILE BAR -->
 <div class="mobile-bar" id="mbar">
-  <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve the Dark</button>
+  <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve a Table</button>
 </div>
 
 <!-- BOOKING -->
@@ -419,7 +418,7 @@
       <div class="chips" id="times">
         <button class="chip" data-t="6:00 PM">6:00<span class="tag">pre-show</span></button>
         <button class="chip" data-t="8:00 PM">8:00</button>
-        <button class="chip sel" data-t="8:30 PM · Live">8:30<span class="tag">live music</span></button>
+        <button class="chip sel" data-t="8:30 PM">8:30<span class="tag">live music</span></button>
         <button class="chip" data-t="9:30 PM">9:30</button>
       </div>
     </div>
@@ -435,7 +434,7 @@
         <div class="seatcard" data-s="Private Room"><b>Private Room</b><small>Your own space</small></div>
       </div>
       <div class="terms" id="terms">
-        <b>Good to know.</b> Bar seats are walk-up friendly — no deposit. Tables on live-music nights carry a <b>HK$200/guest deposit</b>, fully redeemable against your bill. Free cancellation up to 24h before.
+        <b>Good to know.</b> Bar seats welcome walk-ups. For tables, the terrace and private rooms, we'll confirm availability and any deposit with you by WhatsApp when you book.
       </div>
     </div>
 
@@ -454,7 +453,7 @@
       <div class="confirm">
         <div class="stamp"><img src="take-five-logo.png" alt="Take Five"></div>
         <h3 class="serif">Your table is held.</h3>
-        <p class="hint">The lights are low, the ice is ready, and the band starts at 8:30. See you in the dark.</p>
+        <p class="hint">The lights are low, the ice is ready, and the band's on at 8:30. See you soon.</p>
         <div class="summary" id="summary"></div>
         <a class="btn btn-primary" href="https://book.bistrochat.com/avalon" target="_blank" rel="noopener" style="display:inline-block;margin:4px 0 10px">Complete on Bistrochat →</a>
         <p class="hint" style="font-size:.78rem">We'll confirm by WhatsApp. Real reservations are handled securely via Bistrochat.</p>
@@ -483,11 +482,14 @@
 
   // booking state
   let step=1; const maxStep=4;
-  const state={date:'',party:2,time:'8:30 PM · Live',seat:'The Bar',name:'',note:''};
+  const state={date:'',party:2,time:'8:30 PM',seat:'The Bar',name:'',note:''};
 
   const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim');
-  function openBooking(){drawer.classList.add('open');scrim.classList.add('open');document.body.style.overflow='hidden';}
-  function closeBooking(){drawer.classList.remove('open');scrim.classList.remove('open');document.body.style.overflow='';}
+  let lastFocus=null;
+  function openBooking(){lastFocus=document.activeElement;drawer.classList.add('open');scrim.classList.add('open');document.body.style.overflow='hidden';
+    setTimeout(function(){var el=drawer.querySelector('.close');if(el)el.focus();},60);}
+  function closeBooking(){drawer.classList.remove('open');scrim.classList.remove('open');document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus){lastFocus.focus();}}
   addEventListener('keydown',e=>{if(e.key==='Escape')closeBooking()});
 
   // party stepper
@@ -512,7 +514,7 @@
     document.getElementById('backBtn').style.display=step>1&&step<maxStep?'block':'none';
     const nb=document.getElementById('nextBtn');
     nb.textContent=step===3?'Confirm reservation':(step===maxStep?'Done':'Continue');
-    if(step===maxStep){nb.textContent='Add to calendar';document.getElementById('backBtn').style.display='none';}
+    if(step===maxStep){nb.textContent='Done';document.getElementById('backBtn').style.display='none';}
   }
   function go(d){
     if(step===3&&d>0){ // build summary
