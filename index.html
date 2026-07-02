@@ -48,6 +48,7 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
     padding:18px var(--pad); transition:background .4s,backdrop-filter .4s;
+    background:linear-gradient(180deg, rgba(9,8,9,.8) 0%, rgba(9,8,9,.4) 55%, rgba(9,8,9,0) 100%);
   }
   nav.scrolled{background:rgba(11,10,12,.82); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,162,75,.15)}
   /* hide nav logo at the top so the hero emblem stands alone; reveal it on scroll */
@@ -60,8 +61,8 @@
   .hero-emblem{width:clamp(94px,12vw,138px); height:auto; margin-bottom:22px; border-radius:16px;
     box-shadow:0 14px 46px -12px rgba(53,61,38,.95), 0 0 0 1px rgba(201,162,75,.3), 0 0 40px rgba(201,162,75,.18)}
   .nav-links{display:flex; gap:30px; align-items:center}
-  .nav-links a{font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ash); transition:color .3s}
-  .nav-links a:hover{color:var(--bone)}
+  .nav-links a{font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:#D8D0C3; text-shadow:0 1px 10px rgba(0,0,0,.6); transition:color .3s}
+  .nav-links a:hover{color:var(--brass)}
   .btn{
     font-family:var(--sans); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
     border:1px solid var(--brass); color:var(--bone); background:transparent;
