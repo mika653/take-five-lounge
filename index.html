@@ -8,12 +8,16 @@
 <meta property="og:title" content="Take Five — Live Jazz &amp; Cocktail Lounge, Central HK" />
 <meta property="og:description" content="Live jazz nightly 8:30–11pm. Five cocktails named for the standards. Reserve the dark." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="take-five-logo.png" />
+<meta name="theme-color" content="#353D26" />
+<link rel="icon" type="image/png" href="take-five-logo.png" />
+<link rel="apple-touch-icon" href="take-five-logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --noir:#0B0A0C; --velvet:#1A1512; --oxblood:#4A1220;
+    --noir:#0B0A0C; --velvet:#1A1512; --oxblood:#4A1220; --olive:#353D26; --olive-2:#4A5636;
     --brass:#C9A24B; --champagne:#EBD6A0; --amber:#B5641E;
     --bone:#EDE6D8; --ash:#8A8073;
     --serif:'Fraunces',Georgia,serif;
@@ -48,6 +52,10 @@
   nav.scrolled{background:rgba(11,10,12,.82); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,162,75,.15)}
   .brand{font-family:var(--serif); font-size:1.15rem; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; gap:.4em}
   .brand b{color:var(--brass); font-weight:600}
+  .logo-emblem{display:block; border-radius:10px; border:1px solid rgba(201,162,75,.35); box-shadow:0 8px 28px -10px rgba(0,0,0,.7)}
+  .brand-emblem{width:46px; height:46px}
+  .hero-emblem{width:clamp(94px,12vw,138px); height:auto; margin-bottom:22px; border-radius:16px;
+    box-shadow:0 14px 46px -12px rgba(53,61,38,.95), 0 0 0 1px rgba(201,162,75,.3), 0 0 40px rgba(201,162,75,.18)}
   .nav-links{display:flex; gap:30px; align-items:center}
   .nav-links a{font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ash); transition:color .3s}
   .nav-links a:hover{color:var(--bone)}
@@ -180,7 +188,8 @@
     background:radial-gradient(circle at 40% 30%,rgba(181,100,30,.25),transparent 60%),var(--velvet);
     display:flex; align-items:center; justify-content:center; text-align:center; color:var(--ash); font-family:var(--serif); font-style:italic}
 
-  footer{padding:60px var(--pad) 120px; border-top:1px solid rgba(201,162,75,.15); text-align:center; color:var(--ash); font-size:.82rem}
+  footer{padding:60px var(--pad) 120px; border-top:1px solid rgba(201,162,75,.15); text-align:center; color:var(--ash); font-size:.82rem;
+    background:linear-gradient(180deg, transparent, rgba(53,61,38,.4))}
   footer .brand{justify-content:center; margin-bottom:18px; color:var(--bone)}
   footer .fnav{display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin:18px 0}
   footer a:hover{color:var(--brass)}
@@ -243,8 +252,9 @@
   .link-back:hover{color:var(--bone)}
   /* confirmation */
   .confirm{text-align:center; padding:20px 0}
-  .confirm .stamp{width:96px; height:96px; margin:0 auto 24px; border:2px solid var(--brass); border-radius:50%; display:flex; align-items:center; justify-content:center;
-    font-family:var(--serif); font-size:2.6rem; color:var(--brass); box-shadow:0 0 40px rgba(201,162,75,.4); animation:pop .5s}
+  .confirm .stamp{width:104px; height:104px; margin:0 auto 24px; border:1px solid var(--brass); border-radius:18px; overflow:hidden;
+    box-shadow:0 0 44px rgba(201,162,75,.4); animation:pop .5s}
+  .confirm .stamp img{width:100%; height:100%; object-fit:cover; display:block}
   @keyframes pop{from{transform:scale(.5); opacity:0}to{transform:scale(1); opacity:1}}
   .confirm h3{font-size:1.8rem}
   .summary{text-align:left; margin:24px 0; border:1px solid rgba(201,162,75,.2); border-radius:8px; overflow:hidden}
@@ -259,7 +269,7 @@
 <body>
 
 <nav id="nav">
-  <a href="#top" class="brand">Take<b>5</b>Five</a>
+  <a href="#top" class="brand" aria-label="Take Five — home"><img class="logo-emblem brand-emblem" src="take-five-logo.png" alt="Take Five"></a>
   <div class="nav-links">
     <a href="#music">The Music</a>
     <a href="#cocktails">Cocktails</a>
@@ -274,7 +284,7 @@
   <div class="hero-bg"><img src="https://images.unsplash.com/photo-1629907451365-6731862a0d32?q=80&w=1800&auto=format&fit=crop" alt="Saxophone glowing under warm amber stage light" fetchpriority="high"></div>
   <div class="hero-inner">
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
-    <div class="mark5">5</div>
+    <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
     <h1 class="hero-title anim">Tonight, the city can wait.<br>Some nights are meant to be <em>poured slowly.</em></h1>
     <p class="hero-sub anim d1">Brass under a single amber light. A needle finding its groove. A cocktail built like a confession. Two floors above Queen's Road — inside Avalon, behind our own door — this is where the jazz night you've been craving begins.</p>
     <div class="hero-cta anim d2">
@@ -400,7 +410,7 @@
 </section>
 
 <footer>
-  <a href="#top" class="brand">Take<b>5</b>Five</a>
+  <a href="#top" class="brand" aria-label="Take Five — home"><img class="logo-emblem" style="width:72px;height:72px" src="take-five-logo.png" alt="Take Five"></a>
   <div class="fnav">
     <a href="#music">The Music</a><a href="#cocktails">Cocktails</a><a href="#menu">The Room</a><a href="#location">Find Us</a>
     <a href="https://book.bistrochat.com/avalon" target="_blank" rel="noopener">Reserve</a>
@@ -472,7 +482,7 @@
     <!-- STEP 4 -->
     <div class="step" data-step="4">
       <div class="confirm">
-        <div class="stamp">5</div>
+        <div class="stamp"><img src="take-five-logo.png" alt="Take Five"></div>
         <h3 class="serif">Your table is held.</h3>
         <p class="hint">The lights are low, the ice is ready, and the band starts at 8:30. See you in the dark.</p>
         <div class="summary" id="summary"></div>
