@@ -100,7 +100,7 @@
   .mark5{font-family:var(--serif); font-weight:600; font-size:clamp(4rem,16vw,11rem); line-height:.8; color:var(--brass);
     text-shadow:0 0 40px rgba(201,162,75,.45); animation:flicker 2.2s 1 both}
   @keyframes flicker{0%{opacity:0}10%{opacity:.4}12%{opacity:.1}16%{opacity:.7}20%{opacity:.2}30%{opacity:1}}
-  h1.hero-title{font-family:var(--serif); font-weight:300; font-size:clamp(2.4rem,6.5vw,5rem); line-height:1.02; letter-spacing:-.01em; margin:.15em 0 .35em; max-width:16ch}
+  h1.hero-title{font-family:var(--serif); font-weight:300; font-size:clamp(2.4rem,6.5vw,5rem); line-height:1.02; letter-spacing:-.01em; margin:.15em 0 .35em; max-width:16ch; text-wrap:balance}
   h1.hero-title em{font-style:italic; color:var(--champagne)}
   .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem); color:var(--smoke); max-width:52ch; margin-bottom:38px}
   .hero-cta{display:flex; gap:14px; flex-wrap:wrap}
@@ -117,7 +117,7 @@
   /* ---------- SECTIONS ---------- */
   section{padding:clamp(70px,10vw,130px) var(--pad); position:relative}
   .section-head{max-width:640px; margin-bottom:52px}
-  .section-head h2{font-family:var(--serif); font-weight:300; font-size:clamp(2rem,4.5vw,3.2rem); line-height:1.05; margin:14px 0}
+  .section-head h2{font-family:var(--serif); font-weight:300; font-size:clamp(2rem,4.5vw,3.2rem); line-height:1.05; margin:14px 0; text-wrap:balance}
   .section-head p{color:var(--ash)}
   .divider{height:1px; background:linear-gradient(90deg,var(--brass),transparent); margin:0 var(--pad)}
 
@@ -277,7 +277,7 @@
   <div class="hero-inner">
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
-    <h1 class="hero-title anim">Tonight, the city can wait.<br>Some nights are meant to be <em>poured slowly.</em></h1>
+    <h1 class="hero-title anim">Tonight, the city can&nbsp;wait.<br>Some nights are meant to be <em>poured&nbsp;slowly.</em></h1>
     <p class="hero-sub anim d1">An intimate live-jazz lounge two floors above Queen's Road, behind our own door inside Avalon. Live music every night from 8:30, five cocktails named for the standards, and a room small enough to hear every note. Pull up a chair before the first set.</p>
     <div class="hero-cta anim d2">
       <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve a Table</button>
