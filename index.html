@@ -79,14 +79,14 @@
     padding:0 var(--pad); overflow:hidden;
   }
   .hero-bg{position:absolute; inset:0; z-index:-2; background:#070607; overflow:hidden}
-  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:70% center; opacity:.92;
+  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:62% center; opacity:1;
     animation:kenburns 18s ease-out infinite alternate}
   @keyframes kenburns{from{transform:scale(1.06)}to{transform:scale(1.14)}}
   .hero-bg::before{ /* legibility scrim */
     content:""; position:absolute; inset:0; z-index:1;
     background:
-      linear-gradient(90deg, rgba(9,8,9,.96) 0%, rgba(9,8,9,.74) 38%, rgba(9,8,9,.28) 72%, rgba(181,100,30,.12) 100%),
-      linear-gradient(180deg, rgba(9,8,9,.6) 0%, transparent 28%, rgba(11,10,12,.9) 100%);
+      linear-gradient(90deg, rgba(9,8,9,.92) 0%, rgba(9,8,9,.6) 42%, rgba(9,8,9,.08) 72%, transparent 100%),
+      linear-gradient(180deg, rgba(9,8,9,.5) 0%, transparent 30%, rgba(11,10,12,.85) 100%);
   }
   .hero-bg::after{ /* spotlight beam */
     content:""; position:absolute; top:-10%; left:58%; width:60vw; height:120vh; z-index:2;
@@ -273,7 +273,7 @@
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1629907451365-6731862a0d32?q=80&w=1800&auto=format&fit=crop" alt="Saxophone glowing under warm amber stage light" fetchpriority="high"></div>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1655891182838-bbb0596a1d2d?q=80&w=1800&auto=format&fit=crop" alt="A saxophone in dramatic light against black" fetchpriority="high"></div>
   <div class="hero-inner">
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
