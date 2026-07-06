@@ -25,11 +25,11 @@
     --pad:clamp(24px,5vw,96px);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth; overflow-x:clip}
   body{
     background:var(--noir); color:var(--bone);
     font-family:var(--sans); font-weight:300; line-height:1.6;
-    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-wrap:break-word;
   }
   ::selection{background:var(--brass); color:var(--noir)}
   a{color:inherit; text-decoration:none}
@@ -94,7 +94,8 @@
     background:linear-gradient(180deg, rgba(235,214,160,.16), transparent 70%);
     transform:rotate(14deg); filter:blur(30px); mix-blend-mode:screen; pointer-events:none;
   }
-  .hero-inner{max-width:920px; z-index:1}
+  .hero-inner{max-width:920px; z-index:1; width:100%; min-width:0}
+  .music-grid>*, .cols>*, .lineup-wrap, .gig{min-width:0}
   .hero .badge{display:inline-flex; align-items:center; gap:10px; margin-bottom:28px; opacity:0; animation:fade .8s .2s forwards}
   .dot{width:7px; height:7px; border-radius:50%; background:var(--brass); box-shadow:0 0 12px var(--brass); animation:pulse 2.4s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
@@ -103,7 +104,7 @@
   @keyframes flicker{0%{opacity:0}10%{opacity:.4}12%{opacity:.1}16%{opacity:.7}20%{opacity:.2}30%{opacity:1}}
   h1.hero-title{font-family:var(--serif); font-weight:300; font-size:clamp(2.4rem,6.5vw,5rem); line-height:1.02; letter-spacing:-.01em; margin:.15em 0 .35em; max-width:16ch; text-wrap:balance}
   h1.hero-title em{font-style:italic; color:var(--champagne)}
-  .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem); color:var(--smoke); max-width:52ch; margin-bottom:38px}
+  .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem); color:var(--smoke); max-width:52ch; margin-bottom:38px; text-wrap:pretty}
   .hero-cta{display:flex; gap:14px; flex-wrap:wrap}
   .btn-lg{padding:16px 30px; font-size:.82rem}
   .btn-primary{background:linear-gradient(120deg,var(--champagne),var(--brass)); color:var(--noir); border-color:transparent; font-weight:500}
@@ -156,6 +157,19 @@
   .music-figure .set:last-of-type{border:0}
   .music-figure .set b{color:var(--champagne); font-weight:400}
   .music-figure .set span{color:var(--bone); font-family:var(--serif); font-style:italic}
+  .figure-cap{position:relative; z-index:1; font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--bone)}
+
+  /* line-up / what's on */
+  .lineup-wrap{display:flex; flex-direction:column; justify-content:center}
+  .lineup{border-top:1px solid rgba(201,162,75,.22)}
+  .gig{display:grid; grid-template-columns:52px 1fr auto; gap:18px; align-items:baseline;
+    padding:15px 4px; border-bottom:1px solid rgba(138,128,115,.18); transition:background .25s}
+  .gig:hover{background:rgba(201,162,75,.05)}
+  .gig .day{font-family:var(--sans); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--brass)}
+  .gig .act{font-family:var(--serif); font-size:1.16rem; color:var(--bone); line-height:1.25}
+  .gig .time{font-family:var(--sans); font-size:.8rem; letter-spacing:.06em; color:var(--smoke); white-space:nowrap}
+  .lineup-note{font-size:.78rem; color:var(--ash); margin:16px 0 0}
+  .lineup-note a{color:var(--brass)}
 
   /* menu + space */
   .cols{display:grid; grid-template-columns:1fr 1fr; gap:26px}
@@ -256,6 +270,31 @@
   .summary .k{color:var(--ash); text-transform:uppercase; letter-spacing:.1em; font-size:.72rem}
   .summary .v{color:var(--bone)}
 
+  /* ---------- MOBILE ---------- */
+  @media(max-width:640px){
+    :root{--pad:20px}
+    nav{padding:13px 18px}
+    nav .btn{padding:9px 13px; font-size:.66rem; letter-spacing:.1em}
+    .badge{flex-wrap:wrap; row-gap:0}
+    .hero .badge .eyebrow{font-size:.58rem; letter-spacing:.14em}
+    .brand-emblem{width:40px; height:40px}
+    .hero-emblem{width:78px; margin-bottom:16px}
+    h1.hero-title{font-size:clamp(1.75rem,7.2vw,2.35rem); max-width:100%}
+    .hero-sub{font-size:1rem; max-width:100%}
+    .hero-cta{gap:10px}
+    .btn-lg{padding:14px 20px; font-size:.74rem}
+    .hero-facts{gap:8px 18px; margin-top:32px; font-size:.66rem}
+    section{padding:60px var(--pad)}
+    .section-head{margin-bottom:30px}
+    .section-head h2{font-size:1.85rem}
+    .cocktail{min-width:224px; flex:0 0 224px}
+    .gig{grid-template-columns:42px 1fr auto; gap:10px; padding:13px 2px}
+    .gig .act{font-size:1.02rem}
+    .gig .time{font-size:.74rem}
+    .loc-grid dl{grid-template-columns:1fr; gap:2px 0}
+    .loc-grid dt{padding-top:12px}
+  }
+
   @media(prefers-reduced-motion:reduce){*{animation:none!important; scroll-behavior:auto!important}}
 </style>
 </head>
@@ -279,7 +318,7 @@
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
     <h1 class="hero-title anim">Tonight, the city can&nbsp;wait.<br>Some nights are meant to be <em>poured&nbsp;slowly.</em></h1>
-    <p class="hero-sub anim d1">An intimate live-jazz lounge two floors above Queen's Road, behind our own door inside Avalon. Live music every night from 8:30, five cocktails named for the standards, and a room small enough to hear every note. Pull up a chair before the first set.</p>
+    <p class="hero-sub anim d1">An intimate live-jazz room two floors above Queen's Road, behind our own door inside Avalon. A different act on the stand every night, live from 8:30 — in a room small enough to hear every note.</p>
     <div class="hero-cta anim d2">
       <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve a Table</button>
       <a class="btn btn-lg btn-ghost" href="#music">See Tonight's Set</a>
@@ -297,20 +336,30 @@
 
 <!-- MUSIC -->
 <section id="music">
+  <div class="section-head">
+    <span class="eyebrow">What's On — Live Every Night</span>
+    <h2>A different act on the stand, every night.</h2>
+    <p>Programming curated by guitarist Skip Moy — jazz ensembles, vocalists, singer-songwriters and visiting guests. Sets from 8:30; doors from 4.</p>
+  </div>
   <div class="music-grid">
-    <div class="section-head" style="margin-bottom:0">
-      <span class="eyebrow">The Music — curated by Skip Moy</span>
-      <h2>Curated by ear.<br>Played by heart.</h2>
-      <p>Guitarist and audio-production specialist Skip Moy shapes both the room's sound and its nightly programme — jazz ensembles, dynamic vocalists, original singer-songwriters and visiting guests. The cocktails are sharp; the sound is sharper.</p>
-    </div>
     <div class="music-figure">
       <img loading="lazy" src="https://images.unsplash.com/photo-1635520356736-90cb46f73413?q=80&w=1000&auto=format&fit=crop" alt="Vintage microphone glowing on a jazz stage">
       <div class="set-overlay">
-        <div class="eyebrow" style="margin-bottom:14px">Live tonight</div>
-        <div class="set"><span>Live jazz, curated by Skip Moy</span><b>8:30–11 PM</b></div>
-        <div class="set"><span>Doors &amp; cocktails from</span><b>4:00 PM</b></div>
-        <button class="btn" style="margin-top:22px;width:100%" onclick="openBooking()">Book for tonight</button>
+        <div class="eyebrow" style="margin-bottom:6px">On the stand</div>
+        <div class="figure-cap">Live jazz, nightly · 8:30–11 PM</div>
       </div>
+    </div>
+    <div class="lineup-wrap">
+      <div class="lineup">
+        <div class="gig"><span class="day">Tue</span><span class="act">The Trio — modern standards</span><span class="time">8:30 PM</span></div>
+        <div class="gig"><span class="day">Wed</span><span class="act">Vocal Sessions</span><span class="time">8:30 PM</span></div>
+        <div class="gig"><span class="day">Thu</span><span class="act">Singer-Songwriter Night</span><span class="time">8:30 PM</span></div>
+        <div class="gig"><span class="day">Fri</span><span class="act">Guest Artist — featured set</span><span class="time">8:30 PM</span></div>
+        <div class="gig"><span class="day">Sat</span><span class="act">The House Band</span><span class="time">8:30 PM</span></div>
+        <div class="gig"><span class="day">Sun</span><span class="act">Late &amp; Low — after-hours jazz</span><span class="time">8:30 PM</span></div>
+      </div>
+      <p class="lineup-note">Programming rotates nightly; this week's bill is illustrative. Full line-ups announced on <a href="https://www.instagram.com/takefive.hkg/" target="_blank" rel="noopener">@takefive.hkg</a>.</p>
+      <button class="btn btn-primary" style="margin-top:20px; align-self:flex-start" onclick="openBooking()">Reserve for a set</button>
     </div>
   </div>
 </section>
