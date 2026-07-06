@@ -170,6 +170,21 @@
   .gig .time{font-family:var(--sans); font-size:.8rem; letter-spacing:.06em; color:var(--smoke); white-space:nowrap}
   .lineup-note{font-size:.78rem; color:var(--ash); margin:16px 0 0}
   .lineup-note a{color:var(--brass)}
+  /* gig cards */
+  .gigs{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .gig-card{display:block; text-align:left; padding:0; margin:0; border:1px solid rgba(201,162,75,.18); border-radius:12px; overflow:hidden; background:var(--velvet); color:inherit; font:inherit; cursor:pointer; transition:transform .35s, border-color .35s, box-shadow .35s}
+  .gig-card:hover{transform:translateY(-6px); border-color:var(--brass); box-shadow:0 26px 60px -34px rgba(201,162,75,.55)}
+  .gig-card:focus-visible{outline:2px solid var(--amber); outline-offset:3px}
+  .gig-ph{display:block; position:relative; aspect-ratio:4/3; overflow:hidden}
+  .gig-ph img{width:100%; height:100%; object-fit:cover; filter:brightness(.82) contrast(1.05) saturate(.8); transition:transform .6s ease, filter .6s ease}
+  .gig-card:hover .gig-ph img{transform:scale(1.06); filter:brightness(1) contrast(1.05) saturate(.9)}
+  .gig-ph::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(9,8,9,.6))}
+  .gig-meta{display:block; padding:15px 18px 18px}
+  .gig-day{display:inline-block; font-family:var(--sans); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--brass); margin-bottom:7px}
+  .gig-act{display:block; font-family:var(--serif); font-size:1.18rem; color:var(--bone); line-height:1.22; margin-bottom:9px}
+  .gig-time{display:block; font-family:var(--sans); font-size:.76rem; letter-spacing:.05em; color:var(--smoke)}
+  @media(max-width:900px){.gigs{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.gigs{grid-template-columns:1fr}}
 
   /* menu + space */
   .cols{display:grid; grid-template-columns:1fr 1fr; gap:26px}
@@ -340,27 +355,33 @@
     <h2>A different act on the stand, every night.</h2>
     <p>Curated by guitarist Skip Moy — ensembles, vocalists, singer-songwriters and guests. Sets from 8:30.</p>
   </div>
-  <div class="music-grid">
-    <div class="music-figure">
-      <img loading="lazy" src="https://images.unsplash.com/photo-1635520356736-90cb46f73413?q=80&w=1000&auto=format&fit=crop" alt="Vintage microphone glowing on a jazz stage">
-      <div class="set-overlay">
-        <div class="eyebrow" style="margin-bottom:6px">On the stand</div>
-        <div class="figure-cap">Live jazz, nightly · 8:30–11 PM</div>
-      </div>
-    </div>
-    <div class="lineup-wrap">
-      <div class="lineup">
-        <div class="gig"><span class="day">Tue</span><span class="act">The Trio — modern standards</span><span class="time">8:30 PM</span></div>
-        <div class="gig"><span class="day">Wed</span><span class="act">Vocal Sessions</span><span class="time">8:30 PM</span></div>
-        <div class="gig"><span class="day">Thu</span><span class="act">Singer-Songwriter Night</span><span class="time">8:30 PM</span></div>
-        <div class="gig"><span class="day">Fri</span><span class="act">Guest Artist — featured set</span><span class="time">8:30 PM</span></div>
-        <div class="gig"><span class="day">Sat</span><span class="act">The House Band</span><span class="time">8:30 PM</span></div>
-        <div class="gig"><span class="day">Sun</span><span class="act">Late &amp; Low — after-hours jazz</span><span class="time">8:30 PM</span></div>
-      </div>
-      <p class="lineup-note">Programming rotates nightly; this week's bill is illustrative. Full line-ups announced on <a href="https://www.instagram.com/takefive.hkg/" target="_blank" rel="noopener">@takefive.hkg</a>.</p>
-      <button class="btn btn-primary" style="margin-top:20px; align-self:flex-start" onclick="openBooking()">Reserve for a set</button>
-    </div>
+  <div class="gigs">
+    <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Tuesday, The Trio, sets 8:30 PM">
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1707944494732-e706d511456d?q=80&w=640&auto=format&fit=crop" alt="Saxophonist mid-set under stage light"></span>
+      <span class="gig-meta"><span class="gig-day">Tue</span><span class="gig-act">The Trio — modern standards</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
+    </button>
+    <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Wednesday, Vocal Sessions, sets 8:30 PM">
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1522863602463-afebb8886ab2?q=80&w=640&auto=format&fit=crop" alt="Jazz vocalist singing at a vintage microphone"></span>
+      <span class="gig-meta"><span class="gig-day">Wed</span><span class="gig-act">Vocal Sessions</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
+    </button>
+    <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Thursday, Singer-Songwriter Night, sets 8:30 PM">
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1595422656857-ced3a4a0ce25?q=80&w=640&auto=format&fit=crop" alt="Singer performing under a warm spotlight"></span>
+      <span class="gig-meta"><span class="gig-day">Thu</span><span class="gig-act">Singer-Songwriter Night</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
+    </button>
+    <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Friday, Guest Artist, sets 8:30 PM">
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1706664771277-f3122143ce4a?q=80&w=640&auto=format&fit=crop" alt="Trombonist performing on stage"></span>
+      <span class="gig-meta"><span class="gig-day">Fri</span><span class="gig-act">Guest Artist — featured set</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
+    </button>
+    <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Saturday, The House Band, sets 8:30 PM">
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1531971772042-d189c2021395?q=80&w=640&auto=format&fit=crop" alt="Jazz band performing to a full room"></span>
+      <span class="gig-meta"><span class="gig-day">Sat</span><span class="gig-act">The House Band</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
+    </button>
+    <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Sunday, Late and Low, sets 8:30 PM">
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1725830071503-d705ef4a0975?q=80&w=640&auto=format&fit=crop" alt="Saxophonist silhouette in a candlelit lounge"></span>
+      <span class="gig-meta"><span class="gig-day">Sun</span><span class="gig-act">Late &amp; Low — after-hours jazz</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
+    </button>
   </div>
+  <p class="lineup-note" style="margin-top:22px">Programming rotates nightly; this week's bill is illustrative. Full line-ups announced on <a href="https://www.instagram.com/takefive.hkg/" target="_blank" rel="noopener">@takefive.hkg</a>.</p>
 </section>
 
 <div class="divider"></div>
