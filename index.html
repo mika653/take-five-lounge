@@ -191,9 +191,10 @@
   .loc-grid dl{display:grid; grid-template-columns:auto 1fr; gap:12px 24px; font-size:.95rem}
   .loc-grid dt{color:var(--brass); letter-spacing:.1em; text-transform:uppercase; font-size:.72rem; padding-top:4px}
   .loc-grid dd{color:var(--bone)}
-  .mapbox{aspect-ratio:4/3; border:1px solid rgba(201,162,75,.25); border-radius:10px;
-    background:radial-gradient(circle at 40% 30%,rgba(181,100,30,.25),transparent 60%),var(--velvet);
-    display:flex; align-items:center; justify-content:center; text-align:center; color:var(--ash); font-family:var(--serif); font-style:italic}
+  .locphoto{position:relative; aspect-ratio:4/3; border-radius:10px; overflow:hidden; border:1px solid rgba(201,162,75,.25); margin:0}
+  .locphoto img{width:100%; height:100%; object-fit:cover; filter:brightness(.7) contrast(1.03) saturate(.9)}
+  .locphoto::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(9,8,9,.1), rgba(9,8,9,.72))}
+  .locphoto figcaption{position:absolute; left:18px; bottom:15px; z-index:1; font-family:var(--serif); font-style:italic; color:var(--bone); text-shadow:0 2px 12px rgba(0,0,0,.7)}
 
   footer{padding:60px var(--pad) 120px; border-top:1px solid rgba(201,162,75,.15); text-align:center; color:var(--ash); font-size:.82rem;
     background:linear-gradient(180deg, transparent, rgba(53,61,38,.4))}
@@ -283,7 +284,7 @@
     .hero-sub{font-size:1rem; max-width:100%}
     .hero-cta{gap:10px}
     .btn-lg{padding:14px 20px; font-size:.74rem}
-    .hero-facts{gap:8px 18px; margin-top:32px; font-size:.66rem}
+    .hero-facts{display:none}
     section{padding:60px var(--pad)}
     .section-head{margin-bottom:30px}
     .section-head h2{font-size:1.85rem}
@@ -304,8 +305,7 @@
   <a href="#top" class="brand" aria-label="Take Five — home"><img class="logo-emblem brand-emblem" src="take-five-logo.png" alt="Take Five"></a>
   <div class="nav-links">
     <a href="#music">The Music</a>
-    <a href="#cocktails">Cocktails</a>
-    <a href="#menu">The Room</a>
+    <a href="#room">The Room</a>
     <a href="#location">Find Us</a>
     <button class="btn nav-book" onclick="openBooking()">Reserve a Table</button>
   </div>
@@ -318,15 +318,14 @@
     <div class="badge"><span class="dot"></span><span class="eyebrow">Live jazz nightly · 8:30–11pm · Central</span></div>
     <img class="hero-emblem anim" src="take-five-logo.png" alt="Take Five logo">
     <h1 class="hero-title anim">Tonight, the city can&nbsp;wait.<br>Some nights are meant to be <em>poured&nbsp;slowly.</em></h1>
-    <p class="hero-sub anim d1">An intimate live-jazz room two floors above Queen's Road, behind our own door inside Avalon. A different act on the stand every night, live from 8:30 — in a room small enough to hear every note.</p>
+    <p class="hero-sub anim d1">An intimate live-jazz room in Central — a different act on the stand every night, live from 8:30.</p>
     <div class="hero-cta anim d2">
       <button class="btn btn-lg btn-primary" onclick="openBooking()">Reserve a Table</button>
       <a class="btn btn-lg btn-ghost" href="#music">See Tonight's Set</a>
     </div>
     <div class="hero-facts anim d3">
       <span>H Queen's · Central</span>
-      <span>Opens 4pm</span>
-      <span>Five cocktails · HK$110</span>
+      <span>Live nightly · 8:30–11 PM</span>
       <span>By Elite Concepts</span>
     </div>
   </div>
@@ -339,7 +338,7 @@
   <div class="section-head">
     <span class="eyebrow">What's On — Live Every Night</span>
     <h2>A different act on the stand, every night.</h2>
-    <p>Programming curated by guitarist Skip Moy — jazz ensembles, vocalists, singer-songwriters and visiting guests. Sets from 8:30; doors from 4.</p>
+    <p>Curated by guitarist Skip Moy — ensembles, vocalists, singer-songwriters and guests. Sets from 8:30.</p>
   </div>
   <div class="music-grid">
     <div class="music-figure">
@@ -366,43 +365,15 @@
 
 <div class="divider"></div>
 
-<!-- COCKTAILS -->
-<section id="cocktails">
+<!-- THE ROOM (minor: bar + bites + seating) -->
+<section id="room">
   <div class="section-head">
-    <span class="eyebrow">The Bar — Sandeep Kumar</span>
-    <h2>Five drinks. Five standards.</h2>
-    <p>Bar director Sandeep Kumar (trained under Giancarlo Mancino) composes five signatures, each named for a jazz standard. HK$110 each.</p>
-  </div>
-  <div class="cocktails">
-    <div class="cocktail"><div class="num">01</div><h3>Misty</h3><p>Cocoa-washed tequila, mango, calamansi, passionfruit, fresh jalapeño.</p><div class="price">HK$110</div></div>
-    <div class="cocktail"><div class="num">02</div><h3>Skylark</h3><p>Butterfly pea gin, Luxardo maraschino, violet.</p><div class="price">HK$110</div></div>
-    <div class="cocktail"><div class="num">03</div><h3>Green Dolphin Street</h3><p>Aged rum, pistachio shrub, citrus, ricotta foam.</p><div class="price">HK$110</div></div>
-    <div class="cocktail"><div class="num">04</div><h3>Four</h3><p>Rye whiskey, absinthe, Mancino rosso vermouth, vanilla, Heering cherry.</p><div class="price">HK$110</div></div>
-    <div class="cocktail"><div class="num">05</div><h3>Angel Eyes</h3><p>Vodka, olive oil, roasted coffee, kopi vermouth, cacao.</p><div class="price">HK$110</div></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MENU + SPACE -->
-<section id="menu">
-  <div class="section-head">
-    <span class="eyebrow">The Room &amp; The Kitchen</span>
-    <h2>Comfort, uncorked.</h2>
-    <p>From Avalon's kitchen, under Culinary Director Jarrod Verbiak — bites that satisfy without competing with the glass in your hand.</p>
-  </div>
-  <div class="cols" style="margin-bottom:34px">
-    <div class="tile">
-      <h3>Chilled Prawn Cocktail</h3><div class="price">HK$188 · five pieces</div>
-      <p>Horseradish sauce. The classic, done properly.</p>
-    </div>
-    <div class="tile">
-      <h3>House-Smoked Maple Bacon</h3><div class="price">HK$88</div>
-      <p>Maple glaze, hot &amp; sour pickles.</p>
-    </div>
+    <span class="eyebrow">Between Sets</span>
+    <h2>Drinks &amp; a bite, close to the stage.</h2>
+    <p>At the bar: five cocktails named for the standards — Misty, Skylark, Green Dolphin Street, Four &amp; Angel Eyes, HK$110 each — plus small plates from Avalon's kitchen. Choose where you sit when you book.</p>
   </div>
   <div class="seat-row">
-    <div class="seat"><b>The Bar</b><small>Front row to Sandeep's serves</small></div>
+    <div class="seat"><b>The Bar</b><small>Front row to the serves</small></div>
     <div class="seat"><b>Table</b><small>Intimate &amp; reserved</small></div>
     <div class="seat"><b>Terrace</b><small>Open-air, above Central</small></div>
     <div class="seat"><b>Private</b><small>Your own room, by enquiry</small></div>
@@ -427,14 +398,17 @@
       </dl>
       <button class="btn btn-primary" style="margin-top:28px" onclick="openBooking()">Reserve a Table</button>
     </div>
-    <div class="mapbox">H Queen's · 80 Queen's Road Central</div>
+    <figure class="locphoto">
+      <img src="take-five-hqueens.jpg" alt="H Queen's — 80 Queen's Road Central, Central, Hong Kong" loading="lazy">
+      <figcaption>H Queen's · 80 Queen's Road Central</figcaption>
+    </figure>
   </div>
 </section>
 
 <footer>
   <a href="#top" class="brand" aria-label="Take Five — home"><img class="logo-emblem" style="width:72px;height:72px" src="take-five-logo.png" alt="Take Five"></a>
   <div class="fnav">
-    <a href="#music">The Music</a><a href="#cocktails">Cocktails</a><a href="#menu">The Room</a><a href="#location">Find Us</a>
+    <a href="#music">The Music</a><a href="#room">The Room</a><a href="#location">Find Us</a>
     <a href="https://book.bistrochat.com/avalon" target="_blank" rel="noopener">Reserve</a>
   </div>
   <div class="fnav">
@@ -443,6 +417,7 @@
   </div>
   <p style="margin-top:8px">The modern tavern &amp; martini bar experience · Inside Avalon · An Elite Concepts venue · Central, Hong Kong</p>
   <p style="margin-top:10px;opacity:.6">Concept mockup for presentation. Please enjoy responsibly — over-18s only.</p>
+  <p style="margin-top:6px;opacity:.45;font-size:.72rem">Building photo: SUAXINGPWOO Kaliu / Wikimedia Commons, CC BY-SA 4.0.</p>
 </footer>
 
 <!-- STICKY MOBILE BAR -->
