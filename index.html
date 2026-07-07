@@ -176,8 +176,8 @@
   .gig-card:hover{transform:translateY(-6px); border-color:var(--brass); box-shadow:0 26px 60px -34px rgba(201,162,75,.55)}
   .gig-card:focus-visible{outline:2px solid var(--amber); outline-offset:3px}
   .gig-ph{display:block; position:relative; aspect-ratio:4/3; overflow:hidden}
-  .gig-ph img{width:100%; height:100%; object-fit:cover; filter:brightness(.82) contrast(1.05) saturate(.8); transition:transform .6s ease, filter .6s ease}
-  .gig-card:hover .gig-ph img{transform:scale(1.06); filter:brightness(1) contrast(1.05) saturate(.9)}
+  .gig-ph img{width:100%; height:100%; object-fit:cover; filter:grayscale(1) sepia(.34) contrast(1.06) brightness(.9); transition:transform .6s ease, filter .6s ease}
+  .gig-card:hover .gig-ph img{transform:scale(1.06); filter:grayscale(.65) sepia(.2) contrast(1.06) brightness(1.02)}
   .gig-ph::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(9,8,9,.6))}
   .gig-meta{display:block; padding:15px 18px 18px}
   .gig-day{display:inline-block; font-family:var(--sans); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--brass); margin-bottom:7px}
@@ -373,7 +373,7 @@
       <span class="gig-meta"><span class="gig-day">Fri</span><span class="gig-act">Guest Artist — featured set</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
     </button>
     <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Saturday, The House Band, sets 8:30 PM">
-      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1531971772042-d189c2021395?q=80&w=640&auto=format&fit=crop" alt="Jazz band performing to a full room"></span>
+      <span class="gig-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1777428411863-627ed0d1880f?q=80&w=640&auto=format&fit=crop" alt="Vintage jazz band with saxophones"></span>
       <span class="gig-meta"><span class="gig-day">Sat</span><span class="gig-act">The House Band</span><span class="gig-time">Sets 8:30 PM · Reserve →</span></span>
     </button>
     <button class="gig-card" onclick="openBooking()" aria-label="Reserve — Sunday, Late and Low, sets 8:30 PM">
